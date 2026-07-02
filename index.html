@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ground Pros LLC | Commercial Landscaping, Grounds & Snow Management | Elizabethtown KY, Nashville TN, Cincinnati OH</title>
-<meta name="description" content="Ground Pros LLC delivers full-service exterior grounds care for commercial and residential properties across Elizabethtown KY, Nashville TN, and Cincinnati OH. Lawn care, landscaping, snow & ice management, pressure washing, parking lot maintenance. Call (270) 505-9700 for a free quote." />
+<title>Ground Pros LLC | Commercial Landscaping, Grounds & Snow Management | KY, TN, OH & Southern Indiana</title>
+<meta name="description" content="Ground Pros LLC delivers full-service exterior grounds care for commercial and industrial properties across Elizabethtown KY, Nashville TN, Cincinnati OH, and Southern Indiana. Lawn care, landscaping, snow & ice management, pressure washing, parking lot maintenance. Call (270) 505-9700." />
 <meta name="theme-color" content="#0f5a2a" />
 <link rel="canonical" href="https://groundprosky.com/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Ground Pros LLC | Commercial Grounds, Landscaping & Snow Management" />
-<meta property="og:description" content="Full-service exterior property care across KY, TN, and OH. Reliable commercial and residential crews. Call (270) 505-9700." />
+<meta property="og:description" content="Full-service exterior property care for commercial and industrial clients across KY, TN, OH, and Southern Indiana. Call (270) 505-9700." />
 <meta property="og:url" content="https://groundprosky.com/" />
 <meta property="og:site_name" content="Ground Pros LLC" />
 
@@ -71,6 +71,52 @@
   .card-lift:hover { transform: translateY(-6px); }
   input:focus, select:focus, textarea:focus { outline: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { transition:none; opacity:1; transform:none; } html{scroll-behavior:auto;} }
+
+  /* ===== PREVIEW-ONLY WATERMARK — REMOVE BEFORE LAUNCH =====
+     Delete this entire block and the #ck-preview-wm / #ck-preview-banner
+     elements in <body> when the proposal is signed and the site goes live. */
+  #ck-preview-wm {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 3.5rem 5rem;
+    overflow: hidden;
+    transform: rotate(-30deg) scale(1.4);
+  }
+  #ck-preview-wm span {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(15,90,42,0.055);
+    font-size: clamp(1.1rem, 3.5vw, 2rem);
+    white-space: nowrap;
+    user-select: none;
+  }
+  #ck-preview-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #0a3f1d;
+    color: #fff;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    padding: 6px 12px;
+    letter-spacing: .02em;
+    pointer-events: none;
+  }
+  #ck-preview-banner strong { color: #fb923c; font-weight: 700; }
+  /* Lift the mobile sticky call bar above the preview banner so both stay tappable.
+     This rule is part of the preview layer — remove it with the rest. */
+  #ck-mobile-bar { bottom: 28px !important; }
 </style>
 
 <!-- Local SEO structured data -->
@@ -83,7 +129,7 @@
   "url": "https://groundprosky.com/",
   "telephone": "+12705059700",
   "email": "katelyn@groundprosky.com",
-  "slogan": "Quality Starts With Us!",
+  "slogan": "Four Seasons. One Standard.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "306 Steel Drive",
@@ -95,7 +141,10 @@
   "areaServed": [
     {"@type":"City","name":"Elizabethtown","addressRegion":"KY"},
     {"@type":"City","name":"Nashville","addressRegion":"TN"},
-    {"@type":"City","name":"Cincinnati","addressRegion":"OH"}
+    {"@type":"City","name":"Cincinnati","addressRegion":"OH"},
+    {"@type":"City","name":"Sellersburg","addressRegion":"IN"},
+    {"@type":"City","name":"New Albany","addressRegion":"IN"},
+    {"@type":"City","name":"Jeffersonville","addressRegion":"IN"}
   ],
   "founder": ["Steven E Morgan","Katelyn B Morgan"],
   "foundingDate": "2016-06-22",
@@ -116,6 +165,7 @@
 
 <body class="font-body text-slate-700 bg-white antialiased">
 
+
 <!-- ============ NAV ============ -->
 <header id="top" class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/70">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,6 +181,7 @@
       <!-- Center links -->
       <div class="hidden md:flex items-center gap-8 font-semibold text-[15px] text-slate-700">
         <a href="#services" class="hover:text-green-700 transition-colors">Services</a>
+        <a href="#snow" class="hover:text-green-700 transition-colors">Snow</a>
         <a href="#areas" class="hover:text-green-700 transition-colors">Service Areas</a>
         <a href="#why" class="hover:text-green-700 transition-colors">Why Us</a>
         <a href="#contact" class="hover:text-green-700 transition-colors">Contact</a>
@@ -155,7 +206,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       <span class="inline-flex items-center gap-2 bg-orange-500/95 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
-        <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Commercial & Residential Grounds Care
+        <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Commercial & Industrial Grounds Care
       </span>
 
       <h1 class="font-display font-extrabold text-white mt-5 leading-[1.05] tracking-tight text-4xl sm:text-5xl lg:text-6xl">
@@ -163,10 +214,10 @@
       </h1>
 
       <p class="mt-5 text-lg sm:text-xl text-green-50/90 max-w-2xl leading-relaxed">
-        Lawn care, landscaping, snow removal, and full exterior maintenance for property managers and homeowners across Kentucky, Tennessee, and Ohio. One crew, one standard.
+        Lawn care, landscaping, snow removal, and full exterior maintenance for property managers and facilities teams across Kentucky, Tennessee, Ohio, and Southern Indiana.
       </p>
 
-      <p class="mt-4 font-display font-bold text-orange-400 text-xl tracking-tight">"Quality Starts With Us!"</p>
+      <p class="mt-4 font-display font-bold text-orange-400 text-xl tracking-tight">"Four Seasons. One Standard."</p>
 
       <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
         <a href="#contact" class="inline-flex justify-center items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-7 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all">
@@ -184,11 +235,6 @@
         Call now: (270) 505-9700
       </a>
 
-      <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-green-50/85 text-sm font-medium">
-        <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4L8.5 12l6.8-6.7a1 1 0 011.4 0z" clip-rule="evenodd"/></svg> Licensed KY business since 2016</span>
-        <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4L8.5 12l6.8-6.7a1 1 0 011.4 0z" clip-rule="evenodd"/></svg> Serving 3 states</span>
-        <span class="inline-flex items-center gap-2"><svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0L3.3 9.7a1 1 0 011.4-1.4L8.5 12l6.8-6.7a1 1 0 011.4 0z" clip-rule="evenodd"/></svg> Free, no-obligation quotes</span>
-      </div>
     </div>
   </div>
 </section>
@@ -238,6 +284,7 @@
         </div>
         <h3 class="font-display font-bold text-slate-900 text-lg">Snow &amp; Ice Management</h3>
         <p class="mt-2 text-slate-600 text-[15px] leading-relaxed">Reliable plowing, salting, and de-icing that keeps your lots and walkways safe and open all winter.</p>
+        <a href="snow-bailout/snow.html" class="mt-3 inline-flex items-center gap-1 text-green-700 font-semibold text-sm hover:text-green-800 transition-colors">Learn more <span aria-hidden="true">&rarr;</span></a>
       </div>
 
       <!-- Card: Commercial Sweeping -->
@@ -286,16 +333,53 @@
   </div>
 </section>
 
+<!-- ============ SNOW BAND ============ -->
+<section id="snow" class="relative bg-green-900 overflow-hidden">
+  <div class="absolute inset-0 opacity-20" style="background:url('snow-bailout/snow-fleet.jpg');background-size:cover;background-position:center;"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-green-900 via-green-900/95 to-green-900/70"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+
+      <div class="lg:col-span-2 reveal">
+        <span class="inline-flex items-center gap-2 bg-orange-500 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Winter Is Coming
+        </span>
+        <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl lg:text-5xl mt-4 tracking-tight leading-[1.08]">
+          Snow &amp; Ice Management for Commercial and Industrial Property
+        </h2>
+        <p class="mt-4 text-lg text-green-50/90 leading-relaxed max-w-2xl">
+          Plowing, salting, sidewalk clearing, and 24/7 emergency response that keeps your lots and walkways safe and open all winter.
+        </p>
+        <p class="mt-3 text-orange-400 font-semibold">Fully insured. Certificate of insurance available on request.</p>
+      </div>
+
+      <div class="lg:col-span-1 reveal">
+        <div class="flex flex-col gap-3">
+          <a href="snow-bailout/snow.html" class="inline-flex justify-center items-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold text-lg px-7 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all">
+            View Snow Services
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <a href="tel:+12705059700" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold text-lg px-7 py-4 rounded-xl transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            (270) 505-9700
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============ SERVICE AREAS ============ -->
 <section id="areas" class="areas-overlay py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl reveal">
       <span class="font-display font-bold text-orange-400 uppercase tracking-widest text-sm">Where We Work</span>
       <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl lg:text-5xl mt-2 tracking-tight">Multi-State Coverage, One Standard of Quality</h2>
-      <p class="mt-4 text-lg text-green-50/85 leading-relaxed">Headquartered in Elizabethtown, Kentucky, our crews maintain commercial and residential properties across three regions.</p>
+      <p class="mt-4 text-lg text-green-50/85 leading-relaxed">Headquartered in Elizabethtown, Kentucky, our crews maintain commercial and industrial properties across four regions.</p>
     </div>
 
-    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5 lg:gap-6">
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
       <div class="reveal bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-7 hover:bg-white/15 transition-colors">
         <div class="font-display font-extrabold text-white text-2xl">Elizabethtown</div>
         <div class="text-orange-400 font-bold mt-1">Kentucky</div>
@@ -310,6 +394,11 @@
         <div class="font-display font-extrabold text-white text-2xl">Cincinnati</div>
         <div class="text-orange-400 font-bold mt-1">Ohio</div>
         <p class="text-green-50/80 mt-3 text-[15px] leading-relaxed">Reliable crews for lots, grounds, and snow management across the Cincinnati region.</p>
+      </div>
+      <div class="reveal bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-7 hover:bg-white/15 transition-colors">
+        <div class="font-display font-extrabold text-white text-2xl">Southern Indiana</div>
+        <div class="text-orange-400 font-bold mt-1">Indiana</div>
+        <p class="text-green-50/80 mt-3 text-[15px] leading-relaxed">Serving Sellersburg, New Albany, and Jeffersonville with full exterior grounds and snow service.</p>
       </div>
     </div>
 
@@ -345,7 +434,7 @@
           </div>
           <div>
             <h3 class="font-display font-bold text-slate-900 text-lg">Multi-Location Capability</h3>
-            <p class="text-slate-600 mt-1 leading-relaxed">Managing sites in KY, TN, or OH? We deliver the same standard across every location you operate.</p>
+            <p class="text-slate-600 mt-1 leading-relaxed">Managing sites in KY, TN, OH, or Southern Indiana? We deliver the same standard across every location you operate.</p>
           </div>
         </div>
         <div class="flex gap-4">
@@ -503,7 +592,7 @@
         <img src="data:image/jpeg;base64,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" alt="Ground Pros LLC logo" class="h-10 w-10 rounded-full" width="40" height="40" />
         <span class="font-display font-extrabold text-white text-lg tracking-tight">GROUND<span class="text-orange-500">PROS</span></span>
       </div>
-      <p class="mt-4 text-sm leading-relaxed text-slate-400">Full-service exterior grounds care for commercial and residential properties. Quality Starts With Us!</p>
+      <p class="mt-4 text-sm leading-relaxed text-slate-400">Full-service exterior grounds care for commercial and industrial properties. Four Seasons. One Standard.</p>
     </div>
 
     <div>
@@ -521,6 +610,7 @@
         <li>Elizabethtown, KY</li>
         <li>Nashville, TN</li>
         <li>Cincinnati, OH</li>
+        <li>Southern Indiana</li>
       </ul>
     </div>
 
@@ -548,7 +638,7 @@
 </footer>
 
 <!-- ============ MOBILE STICKY CALL BAR ============ -->
-<div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,.08)] grid grid-cols-2 gap-2 p-2.5">
+<div id="ck-mobile-bar" class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,.08)] grid grid-cols-2 gap-2 p-2.5">
   <a href="tel:+12705059700" class="inline-flex justify-center items-center gap-2 bg-green-700 active:bg-green-800 text-white font-bold py-3 rounded-lg">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
     Call
@@ -572,7 +662,7 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 
-  // Form submit -> route to Katelyn (simulated) + success state
+  // Form submit -> open email to Katelyn (mailto) + success state
   (function () {
     var form = document.getElementById('quoteForm');
     var success = document.getElementById('successState');
@@ -580,18 +670,29 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      var payload = {
-        routeTo: 'katelyn@groundprosky.com',
-        fullName: form.fullName.value.trim(),
-        company: form.company.value.trim(),
-        phone: form.phone.value.trim(),
-        email: form.email.value.trim(),
-        service: form.service.value,
-        details: form.details.value.trim(),
-        submittedAt: new Date().toISOString()
-      };
-      console.log('New quote request routing to Katelyn (katelyn@groundprosky.com):', payload);
-      // TODO: connect to a form backend / email service to deliver this payload to Katelyn.
+
+      var fullName = form.fullName.value.trim();
+      var company  = form.company.value.trim();
+      var phone    = form.phone.value.trim();
+      var email    = form.email.value.trim();
+      var service  = form.service.value;
+      var details  = form.details.value.trim();
+
+      var subject = encodeURIComponent('Quote Request from ' + fullName);
+      var body = encodeURIComponent(
+        'New Quote Request\n' +
+        '================================\n\n' +
+        'Name: ' + fullName + '\n' +
+        'Company: ' + (company || 'N/A') + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n' +
+        'Service Needed: ' + service + '\n\n' +
+        'Project Details:\n' + (details || 'None provided.') + '\n\n' +
+        '---\nSubmitted via groundprosky.com'
+      );
+
+      window.location.href = 'mailto:katelyn@groundprosky.com?subject=' + subject + '&body=' + body;
+
       form.classList.add('hidden');
       success.classList.remove('hidden');
       success.scrollIntoView({ behavior: 'smooth', block: 'center' });

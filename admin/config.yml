@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: caseykeown/ground-pros-llc
+  branch: main
+  base_url: https://ground-pros-cms-auth.caseykeown.workers.dev
+  auth_endpoint: /auth
+
+# Uploaded photos are committed here in the repo
+media_folder: "snow-bailout/uploads"
+# Path snow.html uses to reference them (relative to snow-bailout/snow.html)
+public_folder: "uploads"
+
+site_url: https://groundprosky.com
+display_url: https://groundprosky.com/snow-bailout/snow.html
+
+collections:
+  - name: snow_gallery
+    label: "Snow Page Photo Gallery"
+    label_singular: "Gallery Photo"
+    description: "Add, remove, or reorder the photos in the sliding gallery on the Snow Services page. Changes go live within a minute or two of saving."
+    files:
+      - name: gallery
+        label: "Gallery Photos"
+        file: "snow-bailout/gallery.json"
+        editor:
+          preview: false
+        fields:
+          - name: photos
+            label: "Photos"
+            label_singular: "Photo"
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - name: image
+                label: "Photo"
+                widget: image
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - name: alt
+                label: "Photo description (for accessibility and Google)"
+                widget: string
+                hint: "A few words describing the photo, e.g. Ground Pros plow truck clearing a commercial lot at night."

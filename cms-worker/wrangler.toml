@@ -1,0 +1,12 @@
+name = "ground-pros-cms-auth"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# After deploying, the worker URL shown in the dashboard will be:
+#   https://ground-pros-cms-auth.YOUR_SUBDOMAIN.workers.dev
+# Paste that URL into admin/config.yml as the base_url value.
+#
+# Set these as encrypted variables in the Cloudflare dashboard
+# (Settings > Variables) or via: wrangler secret put GITHUB_CLIENT_ID
+#   GITHUB_CLIENT_ID
+#   GITHUB_CLIENT_SECRET

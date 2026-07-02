@@ -1,0 +1,10 @@
+{
+  "photos": [
+    { "image": "uploads/ground-pros-truck-with-american-flag.jpg", "alt": "Ground Pros snow plow truck deployed for commercial emergency response" },
+    { "image": "uploads/snow-fleet.jpg", "alt": "Ground Pros commercial snow removal fleet with BOSS DXT plows staged for deployment" },
+    { "image": "uploads/truck-beside-snowpile.jpg", "alt": "Ground Pros plow truck beside large commercial parking lot snow pile" },
+    { "image": "uploads/gp-truck-city-street.jpg", "alt": "Ground Pros snow plow truck on emergency deployment in downtown city street" },
+    { "image": "uploads/plowing-parking-lot.jpg", "alt": "Ground Pros truck plowing commercial parking lot during winter storm" },
+    { "image": "uploads/snow-plowing-lot.jpg", "alt": "Ground Pros snow and ice management commercial lot clearing" }
+  ]
+}
