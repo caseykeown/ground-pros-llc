@@ -61,7 +61,7 @@
   .areas-overlay {
     background:
       linear-gradient(180deg, rgba(10,63,29,.93), rgba(15,90,42,.93)),
-      url('https://images.unsplash.com/photo-1542621334-a254cf47733d?auto=format&fit=crop&w=2000&q=80');
+      url('snow-bailout/uploads/snow-plowing-lot.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -456,7 +456,7 @@
 
     <div class="reveal">
       <div class="relative">
-        <img src="https://raw.githubusercontent.com/caseykeown/ground-pros-llc/d3a4515ac95730fba2591427f4dfb42b378bc976/four-seasons-social.png" alt="Ground Pros wrapped truck with multi-season background" class="rounded-2xl shadow-2xl w-full h-[420px] object-cover" loading="lazy" />
+        <img src="four-seasons-social.png" alt="Ground Pros wrapped truck with multi-season background" class="rounded-2xl shadow-2xl w-full h-[420px] object-cover" loading="lazy" />
         <div class="absolute -bottom-6 -left-4 sm:left-6 bg-white rounded-xl shadow-xl px-6 py-5 border border-slate-100">
           <div class="font-display font-extrabold text-green-700 text-3xl">Est. 2016</div>
           <div class="text-slate-600 font-semibold text-sm mt-0.5">Locally owned & operated</div>
@@ -513,6 +513,11 @@
 
         <!-- FORM -->
         <form id="quoteForm" novalidate class="space-y-5">
+          <input type="hidden" name="access_key" value="eb8845fb-356e-4872-bda8-dab41f266e93">
+          <input type="hidden" name="subject" value="New Quote Request - Ground Pros Website">
+          <input type="hidden" name="from_name" value="Ground Pros Website">
+          <input type="hidden" name="source_page" value="Homepage">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
               <label for="fullName" class="block text-sm font-semibold text-slate-700 mb-1.5">Full Name <span class="text-orange-500">*</span></label>
@@ -662,40 +667,35 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 
-  // Form submit -> open email to Katelyn (mailto) + success state
+  // Form submit -> Web3Forms (delivers to Katelyn) + on-page success state
   (function () {
     var form = document.getElementById('quoteForm');
     var success = document.getElementById('successState');
     if (!form) return;
-    form.addEventListener('submit', function (e) {
+    var btn = form.querySelector('button[type="submit"]');
+    var btnText = btn ? btn.innerHTML : '';
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      var fullName = form.fullName.value.trim();
-      var company  = form.company.value.trim();
-      var phone    = form.phone.value.trim();
-      var email    = form.email.value.trim();
-      var service  = form.service.value;
-      var details  = form.details.value.trim();
-
-      var subject = encodeURIComponent('Quote Request from ' + fullName);
-      var body = encodeURIComponent(
-        'New Quote Request\n' +
-        '================================\n\n' +
-        'Name: ' + fullName + '\n' +
-        'Company: ' + (company || 'N/A') + '\n' +
-        'Phone: ' + phone + '\n' +
-        'Email: ' + email + '\n' +
-        'Service Needed: ' + service + '\n\n' +
-        'Project Details:\n' + (details || 'None provided.') + '\n\n' +
-        '---\nSubmitted via groundprosky.com'
-      );
-
-      window.location.href = 'mailto:katelyn@groundprosky.com?subject=' + subject + '&body=' + body;
-
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        var data = await res.json();
+        if (data.success) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.innerHTML = btnText; }
+        alert('Something went wrong sending your request. Please call us at (270) 505-9700 and we will help right away.');
+      }
     });
   })();
 </script>
