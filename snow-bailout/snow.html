@@ -82,7 +82,7 @@
   .snow-hero-overlay {
     background:
       linear-gradient(105deg, rgba(10,63,29,.92) 0%, rgba(15,90,42,.75) 45%, rgba(15,90,42,.45) 100%),
-      url('snow-fleet.jpg');
+      url('uploads/snow-fleet.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -126,14 +126,6 @@
   input:focus, select:focus, textarea:focus { outline: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { transition:none; opacity:1; transform:none; animation: none;} html{scroll-behavior:auto;} }
 
-  /* ===== PREVIEW-ONLY WATERMARK — REMOVE BEFORE LAUNCH =====
-     Delete this block and the #ck-preview-wm / #ck-preview-banner elements in <body>
-     when the proposal is signed and the site goes live. */
-  #ck-preview-wm { position: fixed; inset: 0; z-index: 9998; pointer-events: none; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 3.5rem 5rem; overflow: hidden; transform: rotate(-30deg) scale(1.4); }
-  #ck-preview-wm span { font-family: 'Archivo', sans-serif; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(15,90,42,0.055); font-size: clamp(1.1rem, 3.5vw, 2rem); white-space: nowrap; user-select: none; }
-  #ck-preview-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: #0a3f1d; color: #fff; font-family: 'Public Sans', sans-serif; font-size: 12px; text-align: center; padding: 6px 12px; letter-spacing: .02em; pointer-events: none; }
-  #ck-preview-banner strong { color: #fb923c; font-weight: 700; }
-  #ck-mobile-bar { bottom: 28px !important; }
 </style>
 </head>
 
@@ -401,6 +393,11 @@
       <div class="bg-white rounded-2xl shadow-card border border-slate-200 p-6 sm:p-8 lg:p-10">
 
         <form id="snowQuoteForm" novalidate class="space-y-5">
+          <input type="hidden" name="access_key" value="eb8845fb-356e-4872-bda8-dab41f266e93">
+          <input type="hidden" name="subject" value="New Snow Service Request - Ground Pros">
+          <input type="hidden" name="from_name" value="Ground Pros Website">
+          <input type="hidden" name="source_page" value="Snow Services Page">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
           <div class="grid sm:grid-cols-2 gap-5">
             <div>
               <label for="fullName" class="block text-sm font-semibold text-slate-700 mb-1.5">Full Name <span class="text-orange-500">*</span></label>
@@ -480,7 +477,7 @@
 </section>
 
 <!-- STICKY MOBILE CTA -->
-<div id="ck-mobile-bar" class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 shadow-lg">
+<div class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 shadow-lg">
   <div class="grid grid-cols-2 divide-x divide-slate-200">
     <a href="tel:+12705059700" class="flex items-center justify-center gap-2 py-3.5 font-bold text-green-800">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
@@ -542,42 +539,36 @@
 </footer>
 
 <script>
-  document.getElementById('snowQuoteForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('fullName').value.trim();
-    const propertyType = document.getElementById('propertyType').value;
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const location = document.getElementById('propertyLocation').value.trim();
-    const service = document.getElementById('snowService').value;
-    const details = document.getElementById('details').value.trim();
-
-    if (!name || !propertyType || !phone || !email || !location || !service) {
-      alert('Please complete all required fields marked with an asterisk.');
-      return;
-    }
-
-    const subject = encodeURIComponent('Snow Service Request from ' + name);
-    const body = encodeURIComponent(
-      'New Snow & Ice Service Request\n' +
-      '================================\n\n' +
-      'Name: ' + name + '\n' +
-      'Phone: ' + phone + '\n' +
-      'Email: ' + email + '\n' +
-      'Property Type: ' + propertyType + '\n' +
-      'Property Location: ' + location + '\n' +
-      'Service Requested: ' + service + '\n\n' +
-      'Additional Details:\n' + (details || 'None provided.') + '\n\n' +
-      '---\nSubmitted via groundprosky.com snow services page.'
-    );
-
-    window.location.href = 'mailto:katelyn@groundprosky.com?subject=' + subject + '&body=' + body;
-
-    document.getElementById('snowQuoteForm').classList.add('hidden');
-    document.getElementById('snowFormSuccess').classList.remove('hidden');
-    document.getElementById('snowFormSuccess').scrollIntoView({behavior: 'smooth', block: 'center'});
-  });
+  (function () {
+    var form = document.getElementById('snowQuoteForm');
+    var success = document.getElementById('snowFormSuccess');
+    if (!form) return;
+    var btn = form.querySelector('button[type="submit"]');
+    var btnText = btn ? btn.innerHTML : '';
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        var data = await res.json();
+        if (data.success) {
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.innerHTML = btnText; }
+        alert('Something went wrong sending your request. Please call us at (270) 505-9700 and we will help right away.');
+      }
+    });
+  })();
 </script>
 
 <script>
