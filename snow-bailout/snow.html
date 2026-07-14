@@ -159,20 +159,74 @@
         <a href="index.html#contact" class="hover:text-green-700 transition-colors">Contact</a>
       </div>
 
-      <!-- Right CTAs -->
+          <!-- Right CTAs -->
       <div class="flex items-center gap-2 sm:gap-3">
         <a href="tel:+12705059700" class="hidden sm:inline-flex items-center gap-2 font-semibold text-green-800 hover:text-green-600 transition-colors text-[15px]">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
           (270) 505-9700
         </a>
-        <a href="../index.html#contact" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold px-4 lg:px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all text-sm lg:text-[15px]">
+        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold px-4 lg:px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all text-sm lg:text-[15px]">
           Book Now
         </a>
+        <!-- Mobile menu toggle -->
+        <button id="ck-menu-btn" type="button" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-slate-700 hover:bg-slate-100 active:bg-slate-200 transition-colors" aria-expanded="false" aria-controls="ck-mobile-menu" aria-label="Open menu">
+          <svg id="ck-menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="ck-menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
     </div>
   </nav>
+  <!-- Mobile menu panel -->
+    <div id="ck-mobile-menu" class="md:hidden hidden absolute top-full inset-x-0 bg-white border-t border-slate-200 shadow-lg">
+      <div class="px-4 sm:px-6 py-4 flex flex-col">
+        <a href="/#services" class="py-3 font-semibold text-slate-700 border-b border-slate-100">Services</a>
+        <a href="/#snow" class="py-3 font-semibold text-slate-700 border-b border-slate-100">Snow</a>
+        <a href="/#areas" class="py-3 font-semibold text-slate-700 border-b border-slate-100">Service Areas</a>
+        <a href="/#why" class="py-3 font-semibold text-slate-700 border-b border-slate-100">Why Us</a>
+        <a href="/about/" class="py-3 font-semibold text-slate-700 border-b border-slate-100">About</a>
+        <a href="/#contact" class="py-3 font-semibold text-slate-700">Contact</a>
+        <a href="tel:+12705059700" class="mt-3 inline-flex justify-center items-center gap-2 bg-green-700 active:bg-green-800 text-white font-bold py-3 rounded-lg">Call (270) 505-9700</a>
+      </div>
+    </div>
 </header>
+  <script>
+  (function () {
+    var btn = document.getElementById('ck-menu-btn');
+    var panel = document.getElementById('ck-mobile-menu');
+    var iconOpen = document.getElementById('ck-menu-icon-open');
+    var iconClose = document.getElementById('ck-menu-icon-close');
+    if (!btn || !panel) return;
 
+    function setOpen(isOpen) {
+      panel.classList.toggle('hidden', !isOpen);
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(panel.classList.contains('hidden'));
+    });
+
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!panel.classList.contains('hidden') && !panel.contains(e.target) && !btn.contains(e.target)) {
+        setOpen(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768) setOpen(false);
+    });
+  })();
+</script>
 <!-- HERO -->
 <section class="snow-hero-overlay relative pt-28 pb-20 lg:pt-44 lg:pb-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
